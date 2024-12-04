@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5143b3f1-7f04-4f18-afb0-8655d233d826">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechaini" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechafin" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select c.id,to_char(c.fecha,'dd/mm/YYYY'),p.rsocial,c.total from compras c inner join proveedores p on c.idproveedor = p.idproveedor where c.fecha between $P{fechaini} and $P{fechafin}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="to_char" class="java.lang.String"/>
+	<field name="rsocial" class="java.lang.String"/>
+	<field name="total" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="142" y="0" width="100" height="20" uuid="a4713214-a641-4f05-af74-148d4ce28f18"/>
+				<textFieldExpression><![CDATA[$P{fechaini}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="0" width="100" height="20" uuid="eceec36a-a076-4689-954b-375eb9ee5f6b"/>
+				<textFieldExpression><![CDATA[$P{fechafin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" uuid="84a22a73-eb70-4b52-b38c-91cafa899aad"/>
+				<text><![CDATA[total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="77" y="4" width="100" height="20" uuid="626e09f4-71a8-469a-a2ff-6ffc559c3821"/>
+				<text><![CDATA[rsocial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="2" width="100" height="20" uuid="5568dcd3-cd1f-4118-9e9f-e51df7e25602"/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="fe7e0ff9-4317-4104-ab1e-23e9ecd5dd77"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="df1f3ca3-3e4d-40d5-bae0-6ff98107be75"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="25" width="100" height="20" uuid="a3312ba5-23d8-454c-8e80-f94865584387"/>
+				<textFieldExpression><![CDATA[$F{rsocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="25" width="100" height="20" uuid="349d4ca6-9d9d-4d51-9700-146ea37084ac"/>
+				<textFieldExpression><![CDATA[$F{to_char}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="25" width="100" height="20" uuid="9fc75719-b38b-426b-8f10-46a38681a2c5"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ce0a2aa6-af7f-4267-990e-ec7e2ace1e91">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select*from ingredientes]]>
+	</queryString>
+	<field name="id_ingrediente" class="java.lang.Integer"/>
+	<field name="nombre_ingrediente" class="java.lang.String"/>
+	<field name="descripcion_ingrediente" class="java.lang.String"/>
+	<field name="categoria_ingrediente" class="java.lang.Integer"/>
+	<field name="fecha_elaboracion" class="java.sql.Date"/>
+	<field name="fecha_caducidad" class="java.sql.Date"/>
+	<field name="precio_venta" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="167" y="11" width="143" height="33" uuid="952dd67e-fc32-4037-919b-58045132f63d"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Ingredientes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="72" height="20" uuid="95cde741-5380-4538-8f04-6009fb1b243b"/>
+				<text><![CDATA[id_ingrediente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="15" width="72" height="20" uuid="a90c143f-ff1e-4d43-99dd-67844748cff4"/>
+				<textFieldExpression><![CDATA[$F{id_ingrediente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

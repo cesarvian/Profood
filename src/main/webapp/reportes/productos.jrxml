@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d60db703-f2e5-442a-afaa-c0fe2495aea6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codproducto" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select*,to_char(fecha_elaboracion, 'dd/mm/YYYY')as fecha,to_char(fecha_caducidad, 'dd/mm/YYYY')as fecha2 from productos1 where id_producto= $P{codproducto};]]>
+	</queryString>
+	<field name="id_producto" class="java.lang.Integer"/>
+	<field name="nombre_producto" class="java.lang.String"/>
+	<field name="descripcion_producto" class="java.lang.String"/>
+	<field name="categoria_producto" class="java.lang.String"/>
+	<field name="fecha_elaboracion" class="java.sql.Date"/>
+	<field name="fecha_caducidad" class="java.sql.Date"/>
+	<field name="precio_venta" class="java.math.BigDecimal"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="fecha2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="203" y="15" width="128" height="31" uuid="08cd19a5-0050-46d7-a6fe-03f0626064a6"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[PRODUCTOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="87" height="20" uuid="38afca12-2a87-49f6-973b-5aa4cfffc3c3"/>
+				<text><![CDATA[COD PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="0" width="50" height="20" uuid="dca049c5-f817-48b8-8f87-5078d6640f63"/>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="167" y="0" width="73" height="20" uuid="dc950c56-6169-4a25-a875-86308054f970"/>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="0" width="66" height="20" uuid="03462703-4e7d-4e8a-a371-fa7cbd9fee0f"/>
+				<text><![CDATA[CATEGORIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="0" width="42" height="20" uuid="7d6aa716-e605-4227-bc29-763a0fed924e"/>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="0" width="81" height="20" uuid="b695b013-d732-43f2-8237-2083891a5956"/>
+				<text><![CDATA[ELABORACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="481" y="0" width="74" height="20" uuid="229cd825-0e60-4015-9f06-ccadcc52e3a0"/>
+				<text><![CDATA[VENCIMIENTO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="14" width="87" height="20" uuid="f6183e2b-1603-4c0e-9719-a80246149107"/>
+				<textFieldExpression><![CDATA[$F{id_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="14" width="60" height="20" uuid="cc92dfa6-c509-4ec3-8a68-e6106e972661"/>
+				<textFieldExpression><![CDATA[$F{nombre_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="167" y="14" width="73" height="20" uuid="d3d186b8-a7e9-4cb4-ab2f-a6034b767c6a"/>
+				<textFieldExpression><![CDATA[$F{descripcion_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="14" width="66" height="20" uuid="228998ba-928a-48b0-9e52-1d948d9e220f"/>
+				<textFieldExpression><![CDATA[$F{categoria_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="14" width="42" height="20" uuid="7071a5a0-fccb-4e38-b9c9-9c9a10cd889c"/>
+				<textFieldExpression><![CDATA[$F{precio_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="14" width="81" height="20" uuid="46be70c3-8b53-4f6b-a293-2a755856565e"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="14" width="74" height="20" uuid="aeb95ea2-5007-48bd-af1f-31f07ecfe1bb"/>
+				<textFieldExpression><![CDATA[$F{fecha2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="27" y="34" width="100" height="20" uuid="f38f644b-d5f1-4b25-aa6d-3de6b8361e4d"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="34" width="187" height="20" uuid="6b4afaaf-10ab-40dd-aec0-a29994cad367"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="442" y="34" width="40" height="20" uuid="42a2d5a8-7f60-43ef-beef-54203ac6cdcd"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
